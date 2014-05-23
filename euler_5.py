@@ -60,4 +60,4 @@ tot = 1
 for i in divisors:
     tot *= i
 print(divisors)
-print(tot)
+print("Solution:", tot)
