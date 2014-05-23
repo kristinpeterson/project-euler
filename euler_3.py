@@ -1,4 +1,6 @@
 """
+Largest Prime Factor
+
 The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143 (600,851,475,143)?
 """
@@ -18,9 +20,8 @@ def is_prime(n):
 
 for x in range(2, limit):
     if limit % x == 0:
-        print('factor', x, 'found, checking if larger is prime')
         if is_prime(int(limit / x)):
-            print(int(limit / x), 'is the largest prime')
+            print("Solution:", int(limit / x))
             break
 
 ############################################
