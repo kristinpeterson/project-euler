@@ -32,10 +32,13 @@ print(time.time() - start_time, "seconds")
 ############################################
 
 from math import sqrt
+
 start_time = time.time()
+
 primes = set([2])
 value = 3
 number = 600851475143
+
 while value < sqrt(number):
     isPrime = True
     for k in primes:
@@ -47,13 +50,17 @@ while value < sqrt(number):
         if number % value == 0:
             print(value)
             number /= value
+
 print(number)
+
 print(time.time() - start_time, "seconds")
 
 ############################################
 
 start_time = time.time()
+
 n = 600851475143
+
 if n % 2 == 0:
     lastFactor = 2
     n /= 2
@@ -61,8 +68,10 @@ if n % 2 == 0:
         n = n / 2
 else:
     lastFactor = 1
+
 factor = 3
 maxFactor = sqrt(n)
+
 while n > 1 and factor <= maxFactor:
     if n % factor == 0:
         n = n / factor
@@ -71,8 +80,10 @@ while n > 1 and factor <= maxFactor:
             n = n / factor
         maxFactor = sqrt(n)
     factor = factor + 2
+
 if n == 1:
     print(lastFactor)
 else:
     print(n)
+
 print(time.time() - start_time, "seconds")

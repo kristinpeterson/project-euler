@@ -67,7 +67,6 @@ def is_prime(n):
         while f <= r:
             if n % f == 0 or n % (f + 2) == 0:
                 return False
-                break
             f += 6
     return True
 
