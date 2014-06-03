@@ -83,36 +83,26 @@ grid = build_grid(grid_as_string, 20, 20)
 
 for i in range(20):
     for j in range(20):
-        right = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * \
-                            grid[i][j + 3]
-        down = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * \
-                   grid[i + 3][j]
-        up_right_diag = grid[i][j] * grid[i - 1][j + 1] * \
-                    grid[i - 2][j + 2] * grid[i - 3][j + 3]
-        down_right_diag = grid[i][j] * grid[i + 1][j + 1] * \
-                    grid[i + 2][j + 2] * grid[i + 3][j + 3]
-        down_left_diag = grid[i][j] * grid[i + 1][j - 1] * \
-                    grid[i + 2][j - 2] * grid[i + 3][j - 3]
-        up_left_diag = grid[i][j] * grid[i - 1][j - 1] * \
-                    grid[i - 2][j - 2] * grid[i - 3][j - 3]
         if j + 3 < 20:
+            right = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * \
+                    grid[i][j + 3]
             if right > max:
                 max = right
             if i - 3 >= 0:
-                if up_right_diag > max:
-                    max = up_right_diag
+                pos_diag = grid[i][j] * grid[i - 1][j + 1] * \
+                    grid[i - 2][j + 2] * grid[i - 3][j + 3]
+                if pos_diag > max:
+                    max = pos_diag
             if i + 3 < 20:
-                if down_right_diag > max:
-                    max = down_right_diag
+                neg_diag = grid[i][j] * grid[i + 1][j + 1] * \
+                    grid[i + 2][j + 2] * grid[i + 3][j + 3]
+                if neg_diag > max:
+                    max = neg_diag
         if i + 3 < 20:
+            down = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * \
+                   grid[i + 3][j]
             if down > max:
                 max = down
-            if j - 3 >= 0:
-                if down_left_diag > max:
-                    max = down_left_diag
-        if i - 3 >= 0 and j - 3 >= 0:
-            if up_left_diag > max:
-                max = up_left_diag
 
 print("Solution:", max)
 
