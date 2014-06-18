@@ -41,10 +41,8 @@ curr = 1
 max = 0
 while True:
     divisors = count_divisors(curr)
-    print("curr", curr)
     if divisors > max:
         max = divisors
-    print("MAX-------------------------", max)
     if divisors > 500:
         break
     index += 1
