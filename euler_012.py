@@ -21,32 +21,29 @@ What is the value of the first triangle number to have over
 five hundred divisors?
 """
 import time
+import math
 
 start_time = time.time()
 ############################################
 
 def count_divisors(num):
     divisors = 0
-    end = int((num/2)) + 1
+    end = int(math.sqrt(num))
     if num == 1:
         return 1
     for i in range(1, end):
         if num % i == 0:
-            divisors += 1
+            divisors += 2
+    if end * end == num:
+        divisors -= 1
     return divisors
 
-
 index = 1
-curr = 1
-max = 0
-while True:
-    divisors = count_divisors(curr)
-    if divisors > max:
-        max = divisors
-    if divisors > 500:
-        break
+curr = 0
+
+while count_divisors(curr) < 500:
+    curr += index
     index += 1
-    curr = curr + index
 
 print("Solution:", curr)
 
